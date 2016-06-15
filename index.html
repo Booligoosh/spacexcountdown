@@ -31,7 +31,7 @@
   <body>
     <h1>Launching in</h1>
     <h2 class="countdown">10:24:19</h2>
-    <iframe width="900" height="506" src="https://www.youtube.com/embed/gLNmtUEvI5A" frameborder="0" allowfullscreen></iframe>
+    <iframe id="embed" width="900" height="506" src="https://www.youtube.com/embed/gLNmtUEvI5A" frameborder="0" allowfullscreen></iframe>
     <script>
       var x = 0;
       var y = 0;
@@ -43,7 +43,9 @@
         setTimeout(start, x*1000);
       }
       function update() {
-        y = document.getElementsByClassName("ytp-fresca-countdown");
+        var iframe = document.getElementById('iframeId');
+        var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+        y = innerDoc.getElementsByClassName("ytp-fresca-countdown");
         z = document.getElementsByClassName("countdown");
         z[0].innerHTML = y[0].innerHTML;
       }
