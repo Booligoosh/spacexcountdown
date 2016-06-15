@@ -33,15 +33,19 @@
     <h2 class="countdown">10:24:19</h2>
     <iframe width="900" height="506" src="https://www.youtube.com/embed/gLNmtUEvI5A" frameborder="0" allowfullscreen></iframe>
     <script>
+      var x = 0;
+      var y = 0;
+      var z = 0;
+      start();
       function start() {
-        var x = 0;  // 0 Seconds
+        x = 0;  // 0 Seconds
         update();
         setTimeout(start, x*1000);
       }
       function update() {
-        var x = document.getElementsByClassName("ytp-fresca-countdown");
-        var y = document.getElementsByClassName("countdown");
-        y[0].innerHTML = x[0].innerHTML;
+        y = document.getElementsByClassName("ytp-fresca-countdown");
+        z = document.getElementsByClassName("countdown");
+        z[0].innerHTML = y[0].innerHTML;
       }
     </script>
   </body>
