@@ -33,22 +33,14 @@
     <h2 class="countdown">10:24:19</h2>
     <iframe id="embed" width="900" height="506" src="https://www.youtube.com/embed/gLNmtUEvI5A" frameborder="0" allowfullscreen></iframe>
     <script>
-      var x = 0;
-      var y = 0;
-      var z = 0;
-      start();
-      function start() {
-        x = 0;  // 0 Seconds
-        update();
-        setTimeout(start, x*1000);
-      }
-      function update() {
-        var iframe = document.getElementById('iframeId');
-        var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-        y = innerDoc.getElementsByClassName("ytp-fresca-countdown");
-        z = document.getElementsByClassName("countdown");
-        z[0].innerHTML = y[0].innerHTML;
-      }
+      var request = new XMLHttpRequest();
+
+      request.addEventListener("load", function(evt){
+        console.log(evt);
+      }, false);
+
+      request.open('GET', 'https://www.youtube.com/watch?v=gLNmtUEvI5A', true),
+      request.send();
     </script>
   </body>
 </html>
