@@ -31,5 +31,15 @@
   <body>
     <h1>Launching in</h1>
     <h2 id="countdown">10:24:19</h2>
+    <script>
+      var request = new XMLHttpRequest();
+
+      request.addEventListener("load", function(evt){
+        console.log(evt);
+      }, false);
+
+      request.open('GET', 'http://www.spacex.com/webcast', true),
+      request.send();
+    </script>
   </body>
 </html>
