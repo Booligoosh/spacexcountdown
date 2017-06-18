@@ -35,9 +35,14 @@
     <h2>Popularity:</h2>
     <script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&q=/m/03fkyw,+/m/0dr90d,+/m/03nzf1&cmpt=q&tz=Etc/GMT-10&tz=Etc/GMT-10&content=1&cid=TIMESERIES_GRAPH_AVERAGES_CHART&export=5&w=500&h=330"></script>
     <script>
-      $.get('https://cors-everywhere.herokuapp.com/https://spacexstats.com/live', null, function(text){
-        alert($(text).find('#name'));
-      });
+      getSelectorFromPage('td.value.days.ng-binding', 'http://spacexstats.xyz/#NextLaunch');
+      function getSelectorFromPage(selector,page) {
+        $.get('https://cors-everywhere.herokuapp.com/' + selector, null, function(text){
+          var htmlObject = $.parseHTML(text);
+          var object = $(htmlObject).find(selector);
+          console.log(object.val()); 
+        });
+      }
     </script>
   </body>
 </html>
