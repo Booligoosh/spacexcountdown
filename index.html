@@ -37,7 +37,7 @@
     <script>
       getSelectorFromPage('td.value.days.ng-binding', 'http://spacexstats.xyz/#NextLaunch');
       function getSelectorFromPage(selector,page) {
-        $.get('https://cors-everywhere.herokuapp.com/' + selector, null, function(text){
+        $.get('https://cors-everywhere.herokuapp.com/' + page, null, function(text){
           var htmlObject = $.parseHTML(text);
           var object = $(htmlObject).find(selector);
           console.log(object.val()); 
